@@ -11,6 +11,7 @@ public class Timer : MonoBehaviour
     float remainingTime = 1; // This isn't actually ever 1 but if it's 0 which is the default the script breaks
     float startTime;
     bool timeUpCalled = false;
+    public GameEnding gameEnding;
 
     // Start is called before the first frame update
     void Start()
@@ -44,8 +45,9 @@ public class Timer : MonoBehaviour
         }
     }
     void TimeUp()
-    {
+    { 
         Debug.Log("time up");
         // Put whatever you want to happen when time runs out here
+        gameEnding.CaughtPlayer();
     }
 }

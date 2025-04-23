@@ -9,8 +9,10 @@ public class PlayerMovement : MonoBehaviour
     Animator m_Animator;
     Rigidbody m_Rigidbody;
     AudioSource m_AudioSource;
-    Vector3 m_Movement;
+    public Vector3 m_Movement;
     Quaternion m_Rotation = Quaternion.identity;
+    public float speedBoost = 1f;
+    
 
     void Start()
     {
@@ -50,7 +52,9 @@ public class PlayerMovement : MonoBehaviour
 
     void OnAnimatorMove()
     {
-        m_Rigidbody.MovePosition(m_Rigidbody.position + m_Movement * m_Animator.deltaPosition.magnitude);
+        m_Rigidbody.MovePosition(m_Rigidbody.position + m_Movement * m_Animator.deltaPosition.magnitude * speedBoost);
         m_Rigidbody.MoveRotation(m_Rotation);
     }
+
+    
 }
